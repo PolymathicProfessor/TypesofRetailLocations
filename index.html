@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Types of Retail Locations Infographic</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+        
+        .intro {
+            background: #f8f9fa;
+            padding: 30px;
+            border-left: 5px solid #667eea;
+            margin: 30px;
+            border-radius: 10px;
+        }
+        
+        .intro h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+        
+        .main-categories {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            padding: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .category-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .category-card h3 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            text-align: center;
+            border-bottom: 2px solid white;
+            padding-bottom: 10px;
+        }
+        
+        .category-card ul {
+            list-style: none;
+            margin-top: 15px;
+        }
+        
+        .category-card li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .category-card li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .locations-grid {
+            padding: 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .location-card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .location-card:hover {
+            border-color: #667eea;
+            box-shadow: 0 8px 15px rgba(102, 126, 234, 0.3);
+            transform: translateY(-3px);
+        }
+        
+        .location-card h4 {
+            color: #667eea;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .icon {
+            font-size: 1.5em;
+        }
+        
+        .location-card .description {
+            color: #555;
+            margin-bottom: 15px;
+            font-size: 0.95em;
+        }
+        
+        .pros-cons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .pros, .cons {
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 0.85em;
+        }
+        
+        .pros {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+        }
+        
+        .cons {
+            background: #f8d7da;
+            border-left: 4px solid #dc3545;
+        }
+        
+        .pros h5, .cons h5 {
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+        
+        .pros ul, .cons ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .pros li, .cons li {
+            margin-bottom: 4px;
+            padding-left: 15px;
+            position: relative;
+        }
+        
+        .pros li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #28a745;
+            font-weight: bold;
+        }
+        
+        .cons li:before {
+            content: "✗";
+            position: absolute;
+            left: 0;
+            color: #dc3545;
+            font-weight: bold;
+        }
+        
+        .discussion-section {
+            background: #f8f9fa;
+            padding: 40px 30px;
+            margin: 30px;
+            border-radius: 15px;
+            border: 3px solid #667eea;
+        }
+        
+        .discussion-section h2 {
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 25px;
+            text-align: center;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+        }
+        
+        .question {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #764ba2;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .question-number {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 35px;
+            font-weight: bold;
+            margin-right: 15px;
+            font-size: 1.1em;
+        }
+        
+        .question p {
+            display: inline;
+            font-size: 1.1em;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .key-takeaway {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            margin: 30px;
+            border-radius: 15px;
+            text-align: center;
+        }
+        
+        .key-takeaway h3 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+        
+        .key-takeaway p {
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+        
+        .footer {
+            background: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .container {
+                box-shadow: none;
+            }
+            
+            .location-card {
+                page-break-inside: avoid;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .main-categories {
+                grid-template-columns: 1fr;
+            }
+            
+            .pros-cons {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏪 Types of Retail Locations</h1>
+            <p>Understanding Location Strategy in Retailing</p>
+        </div>
+        
+        <div class="intro">
+            <h2>Why Location Matters</h2>
+            <p><strong>"Location, location, location"</strong> remains one of the most critical decisions in retailing because:</p>
+            <ul style="margin-left: 25px; margin-top: 15px;">
+                <li>✓ Location is typically one of the most influential considerations in customer store choice</li>
+                <li>✓ Location decisions have strategic importance for developing sustainable competitive advantage</li>
+                <li>✓ Location decisions are risky due to substantial investments and long-term commitments</li>
+            </ul>
+        </div>
+        
+        <div class="main-categories">
+            <div class="category-card">
+                <h3>🏗️ UNPLANNED LOCATIONS</h3>
+                <p style="margin-top: 15px;">No centralized management determining store mix or operations</p>
+                <ul>
+                    <li>Freestanding Sites</li>
+                    <li>Central Business Districts (CBD)</li>
+                    <li>Inner City Locations</li>
+                    <li>Gentrified Residential Areas</li>
+                    <li>Main Street</li>
+                </ul>
+            </div>
+            
+            <div class="category-card">
+                <h3>🏢 PLANNED LOCATIONS</h3>
+                <p style="margin-top: 15px;">Shopping center developer/manager makes and enforces operational policies</p>
+                <ul>
+                    <li>Strip Centers (Convenience, Neighborhood, Community)</li>
+                    <li>Power Centers</li>
+                    <li>Enclosed Shopping Malls</li>
+                    <li>Lifestyle Centers</li>
+                    <li>Outlet Centers</li>
+                    <li>Theme/Festival Centers</li>
+                    <li>Mixed-Use Developments</li>
+                </ul>
+            </div>
+        </div>
+        
+        <h2 style="text-align: center; color: #667eea; padding: 20px; font-size: 2em;">Detailed Location Types</h2>
+        
+        <div class="locations-grid">
+            <!-- Freestanding Sites -->
+            <div class="location-card">
+                <h4><span class="icon">🏬</span> Freestanding Sites</h4>
+                <p class="description">Not connected to other retailers, though may be near shopping centers or other freestanding stores. Popular for warehouse clubs, hypermarkets, and fast-food with drive-through.</p>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h5>Advantages:</h5>
+                        <ul>
+                            <li>Greater visibility</li>
+                            <li>Lower rents</li>
+                            <li>Ample parking</li>
+                            <li>No direct competition</li>
+                            <li>Fewer restrictions</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h5>Disadvantages:</h5>
+                        <ul>
+                            <li>Lack of synergy</li>
+                            <li>Must be destination</li>
+                            <li>Need special offering</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Central Business District -->
+            <div class="location-card">
+                <h4><span class="icon">🏙️</span> Central Business District</h4>
+                <p class="description">Traditional downtown financial and business area. Many CBDs experiencing revival through gentrification.</p>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h5>Advantages:</h5>
+                        <ul>
+                            <li>High pedestrian traffic</li>
+                            <li>Public transportation access</li>
+                            <li>Business activity flow</li>
+                            <li>Gentrification opportunities</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h5>Disadvantages:</h5>
+                        <ul>
+                            <li>Limited parking</li>
+                            <li>Potential shoplifting</li>
+                            <li>Slow evening/weekend traffic</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Strip Centers -->
+            <div class="location-card">
+                <h4><span class="icon">🏪</span> Strip Centers</h4>
+                <p class="description">Attached rows of open-air stores with onsite parking. Includes convenience, neighborhood, and community shopping centers. Supermarkets typically serve as anchors.</p>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h5>Advantages:</h5>
+                        <ul>
+                            <li>Convenient locations</li>
+                            <li>Easy parking</li>
+                            <li>Lower rents</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h5>Disadvantages:</h5>
+                        <ul>
+                            <li>No weather protection</li>
+                            <li>Less assortment</li>
+                            <li>Limited entertainment</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Power Centers -->
+            <div class="location-card">
+                <h4><span class="icon">💪</span> Power Centers</h4>
+                <p class="description">Dominated by several large anchors including full-line discount stores, off-price stores, warehouse clubs, and category specialists. Often includes freestanding anchors.</p>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h5>Advantages:</h5>
+                        <ul>
+                            <li>Low occupancy costs</li>
+                            <li>High traffic</li>
+                            <li>Large trade areas</li>
+                            <li>Category depth</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h5>Disadvantages:</h5>
+                        <ul>
+                            <li>Intense competition</li>
+                            <li>Limited synergy</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Enclosed Malls -->
+            <div class="location-card">
+                <h4><span class="icon">🛍️</span> Enclosed Shopping Malls</h4>
+                <p class="description">Climate-controlled malls with department stores as traditional anchors. Large trade areas with diverse merchandise and entertainment options.</p>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h5>Advantages:</h5>
+                        <ul>
+                            <li>Weather protection</li>
+                            <li>Large trade area</li>
+                            <li>Diverse assortment</li>
+                            <li>Entertainment options</li>
+                            <li>Uniform operations</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h5>Disadvantages:</h5>
+                        <ul>
+                            <li>Higher occupancy costs</li>
+                            <li>Management restrictions</li>
+                            <li>Intense competition</li>
+                            <li>Less convenient parking</li>
+                            <li>Aging facilities</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Lifestyle Centers -->
+            <div class="location-card">
+                <h4><span class="icon">🌳</span> Lifestyle Centers</h4>
+                <p class="description">Open-air configuration of specialty stores, entertainment, and restaurants with design ambience. Resembles main streets in small towns.</p>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h5>Advantages:</h5>
+                        <ul>
+                            <li>Easy parking</li>
+                            <li>Appealing ambience</li>
+                            <li>Higher-end experience</li>
+                            <li>Entertainment value</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h5>Disadvantages:</h5>
+                        <ul>
+                            <li>Less retail space than malls</li>
+                            <li>Smaller trade areas</li>
+                            <li>Fewer customers</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Outlet Centers -->
+            <div class="location-card">
+                <h4><span class="icon">🏷️</span> Outlet Centers</h4>
+                <p class="description">Contain mostly manufacturers' and retailers' outlets. Well-designed with landscaping and food courts. Tourism is an important traffic generator.</p>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h5>Advantages:</h5>
+                        <ul>
+                            <li>Brand names at discount</li>
+                            <li>Tourist destination</li>
+                            <li>Interstate access</li>
+                            <li>Large selection</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h5>Disadvantages:</h5>
+                        <ul>
+                            <li>Remote locations</li>
+                            <li>Limited new centers</li>
+                            <li>Tourism dependent</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mixed-Use Developments -->
+            <div class="location-card">
+                <h4><span class="icon">🏘️</span> Mixed-Use Developments</h4>
+                <p class="description">Combine several uses in one complex: retail, office, hotels, residential. Pedestrian-oriented facilitating live-work-play environment.</p>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h5>Advantages:</h5>
+                        <ul>
+                            <li>Multiple customer bases</li>
+                            <li>24/7 activity</li>
+                            <li>Pedestrian traffic</li>
+                            <li>Community feel</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h5>Disadvantages:</h5>
+                        <ul>
+                            <li>Complex management</li>
+                            <li>Higher development costs</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Nontraditional Locations -->
+            <div class="location-card">
+                <h4><span class="icon">🎪</span> Nontraditional Locations</h4>
+                <p class="description">Pop-up stores, store-within-a-store, and kiosks offer flexible, temporary, or alternative retail spaces.</p>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h5>Advantages:</h5>
+                        <ul>
+                            <li>Low investment</li>
+                            <li>Short-term leases</li>
+                            <li>Test markets</li>
+                            <li>Seasonal flexibility</li>
+                            <li>High traffic areas</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h5>Disadvantages:</h5>
+                        <ul>
+                            <li>Limited space</li>
+                            <li>Temporary nature</li>
+                            <li>Limited services</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="key-takeaway">
+            <h3>🎯 Key Takeaway</h3>
+            <p>Choosing a location involves evaluating trade-offs between <strong>cost</strong> versus <strong>value to customers</strong>. Location decisions must align with the retailer's <strong>target market</strong>, <strong>shopping behavior</strong>, and <strong>retail strategy</strong> to create sustainable competitive advantage.</p>
+        </div>
+        
+        <div class="discussion-section">
+            <h2>💭 Discussion Questions for Class</h2>
+            
+            <div class="question">
+                <span class="question-number">1</span>
+                <p>Consider a retailer like Apple versus a 7-Eleven convenience store. How do their target markets and merchandise offerings influence their ideal location choices? What specific location type would you recommend for each and why?</p>
+            </div>
+            
+            <div class="question">
+                <span class="question-number">2</span>
+                <p>Visit or research a lifestyle center and an enclosed mall in your area. Compare and contrast the tenant mix, atmosphere, and target customers. Which location type do you believe has a better future in the next 10 years, and what factors support your prediction?</p>
+            </div>
+            
+            <div class="question">
+                <span class="question-number">3</span>
+                <p>Gentrification of inner-city areas brings both benefits and concerns. As a retail consultant, how would you advise a major retailer (like Whole Foods or Target) on the ethical considerations of opening in a food desert? What responsibilities should retailers have to existing community members?</p>
+            </div>
+            
+            <div class="question">
+                <span class="question-number">4</span>
+                <p>The chapter states that approximately 47% of retail space in the U.S. is in planned locations, with 53% in unplanned locations. Why do you think the split is relatively even? What factors might cause this ratio to shift in the future, especially considering e-commerce growth?</p>
+            </div>
+            
+            <div class="question">
+                <span class="question-number">5</span>
+                <p>Think about your own shopping behavior. Identify a recent convenience shopping trip, comparison shopping trip, and specialty shopping trip you made. How did the location of each retailer influence your decision to shop there? Would you have traveled further for any of these purchases if necessary? Why or why not?</p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>© 2025 Retail Locations Study Guide | Chapter 8: Retail Management</p>
+        </div>
+    </div>
+</body>
+</html>
